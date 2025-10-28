@@ -4,11 +4,12 @@
       <router-link to="/" class="font-bold text-xl">TicketApp</router-link>
       <nav>
         <ul class="flex items-center gap-4">
-          <li><router-link to="/">Home</router-link></li>
           <template v-if="session">
             <li><router-link to="/dashboard">Dashboard</router-link></li>
             <li><router-link to="/tickets">Tickets</router-link></li>
-            <li><button @click="logout" class="btn btn-ghost">Logout</button></li>
+            <li>
+              <button @click="logout" class="btn btn-ghost">Logout</button>
+            </li>
           </template>
           <template v-else>
             <li><router-link to="/auth/login">Login</router-link></li>
