@@ -1,19 +1,40 @@
 <template>
   <form @submit.prevent="handleSubmit" class="max-w-md">
-    <div v-if="errors.form" class="text-red-600 mb-3">{{ errors.form }}</div>
-    <label class="block mb-2">Email
-      <input v-model="email" class="mt-1 block w-full rounded border px-3 py-2" :aria-describedby="errors.email ? 'email-error' : undefined" />
+    <label class="block mb-2"
+      >Email
+      <input
+        v-model="email"
+        class="mt-1 block w-full rounded border px-3 py-2"
+        :aria-describedby="errors.email ? 'email-error' : undefined"
+      />
     </label>
-    <div v-if="errors.email" id="email-error" class="text-red-600 text-sm">{{ errors.email }}</div>
+    <div v-if="errors.email" id="email-error" class="text-red-600 text-sm">
+      {{ errors.email }}
+    </div>
 
-    <label class="block mt-4 mb-2">Password
-      <input type="password" v-model="password" class="mt-1 block w-full rounded border px-3 py-2" :aria-describedby="errors.password ? 'password-error' : undefined" />
+    <label class="block mt-4 mb-2"
+      >Password
+      <input
+        type="password"
+        v-model="password"
+        class="mt-1 block w-full rounded border px-3 py-2"
+        :aria-describedby="errors.password ? 'password-error' : undefined"
+      />
     </label>
-    <div v-if="errors.password" id="password-error" class="text-red-600 text-sm">{{ errors.password }}</div>
+    <div
+      v-if="errors.password"
+      id="password-error"
+      class="text-red-600 text-sm"
+    >
+      {{ errors.password }}
+    </div>
 
     <div class="mt-6 flex gap-3">
-      <button type="submit" class="px-4 py-2 rounded bg-blue-600 text-white">{{ mode === 'login' ? 'Login' : 'Sign up' }}</button>
+      <button type="submit" class="px-4 py-2 rounded bg-blue-600 text-white">
+        {{ mode === 'login' ? 'Login' : 'Sign up' }}
+      </button>
     </div>
+    <div v-if="errors.form" class="text-red-600 mt-3">{{ errors.form }}</div>
   </form>
 </template>
 
