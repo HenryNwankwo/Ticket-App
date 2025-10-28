@@ -20,6 +20,12 @@ $routes = [
   '/tickets/new' => 'tickets/new.twig',
 ];
 
+//Checking the exact match of route first
+if (array_key_exists($path, $routes)) {
+  echo $twig->render($routes[$path]);
+  exit;
+}
+
 // dynamic ticket routes: /tickets/{id}, /tickets/{id}/edit
 if (preg_match('#^/tickets/([^/]+)/edit$#', $path, $m)) {
   echo $twig->render('tickets/edit.twig', ['id' => $m[1]]);
