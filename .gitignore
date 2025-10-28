@@ -1,0 +1,101 @@
+# ===================================================
+# GLOBAL / SYSTEM FILES
+# ===================================================
+# OS junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.iml
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# ===================================================
+# NODE / JAVASCRIPT ENVIRONMENT
+# (Applies to both React & Vue apps)
+# ===================================================
+node_modules/
+dist/
+build/
+.cache/
+coverage/
+.tmp/
+.eslintcache
+.stylelintcache
+.turbo/
+.vite/
+.npm/
+.yarn/
+.pnpm-store/
+
+# ===================================================
+# REACT (Next.js) — ticketapp-react/
+# ===================================================
+ticketapp-react/.next/
+ticketapp-react/out/
+ticketapp-react/.vercel/
+ticketapp-react/.turbo/
+ticketapp-react/node_modules/
+ticketapp-react/.env*
+ticketapp-react/coverage/
+
+# ===================================================
+# VUE (Vite + Tailwind) — ticketapp-vue/
+# ===================================================
+ticketapp-vue/dist/
+ticketapp-vue/node_modules/
+ticketapp-vue/.env*
+ticketapp-vue/.cache/
+ticketapp-vue/.vite/
+ticketapp-vue/coverage/
+
+# ===================================================
+# PHP + TWIG — ticketapp-twig/
+# ===================================================
+ticketapp-twig/vendor/
+ticketapp-twig/cache/
+ticketapp-twig/storage/
+ticketapp-twig/bootstrap/cache/
+ticketapp-twig/.env
+ticketapp-twig/.env.local
+ticketapp-twig/.phpunit.result.cache
+ticketapp-twig/composer.lock
+
+# ===================================================
+# OTHER COMMON TEMP FILES
+# ===================================================
+*.pid
+*.seed
+*.pid.lock
+
+# ===================================================
+# MISC BUILD / DEPLOYMENT DIRECTORIES
+# ===================================================
+# Local build/test artifacts
+**/tmp/
+**/test-output/
+**/local/
+
+# Optional: comment out if you want to include them
+# *.zip
+# *.tar.gz
