@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TicketApp</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="bg-white shadow">
+      <div class="container-centered px-6 py-4 flex items-center justify-between">
+        <a href="/" class="font-bold text-xl">TicketApp</a>
+        <nav>
+  <ul class="flex items-center gap-4">            
+    <li><a href="/dashboard" id="dashboard-link" class="hidden">Dashboard</a></li>
+    <li><a href="/tickets" id="tickets-link" class="hidden">Tickets</a></li>
+    <li><a href="#" id="logout-link" class="hidden text-gray-700">Logout</a></li>
+    <li><a href="/auth/login" id="login-link">Login</a></li>
+    <li><a href="/auth/signup" id="signup-link">Sign up</a></li>
+  </ul>          
+</nav>
+      </div>
+    </header>
+
+    <main class="flex-1 bg-gray-50">
+      <div class="container-centered px-6 py-10">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+
+    <footer class="bg-white border-t">
+      <div class="container-centered px-6 py-6 text-sm text-gray-600">© {{ "now"|date("Y") }} TicketApp — Built for the Stage 2 task.</div>
+    </footer>
+  </div>
+  <script type="module" src="/js/app.js"></script>
+    
+
+  <script type="module">
+  import { getSession, clearSession } from '/js/app.js';
+
+  (function(){
+    const path = window.location.pathname;
+    const protectedRoutes = ['/dashboard', '/tickets', '/tickets/new'];
+    const session = getSession();
+
+    const loginLink = document.getElementById('login-link');
+    const signupLink = document.getElementById('signup-link');
+    const logoutLink = document.getElementById('logout-link');
+    const dashboardLink = document.getElementById('dashboard-link');
+    const ticketsLink = document.getElementById('tickets-link');
+
+    // Redirect unauthorized users from protected pages
+    if (protectedRoutes.includes(path) || path.startsWith('/tickets/')) {
+      if (!session) {
+        window.location.href = '/auth/login';
+        return;
+      }
+    }
+
+    if (session) {
+      // Hide login/signup links
+      if (loginLink) loginLink.classList.add('hidden');
+      if (signupLink) signupLink.classList.add('hidden');
+
+      // Show dashboard, tickets, and logout links
+      if (dashboardLink) dashboardLink.classList.remove('hidden');
+      if (ticketsLink) ticketsLink.classList.remove('hidden');
+      if (logoutLink) logoutLink.classList.remove('hidden');
+
+      // Handle logout click
+      logoutLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearSession();
+        window.location.href = '/';
+      });
+    } else {
+      // Hide dashboard, tickets, logout
+      if (dashboardLink) dashboardLink.classList.add('hidden');
+      if (ticketsLink) ticketsLink.classList.add('hidden');
+      if (logoutLink) logoutLink.classList.add('hidden');
+    }
+  })();
+</script>
+</body>
+</html>
