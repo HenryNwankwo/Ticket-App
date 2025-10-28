@@ -11,8 +11,8 @@
           <h1 class="text-4xl font-extrabold">TicketApp — manage issues, fast and efficiently.</h1>
           <p class="mt-4 text-lg text-gray-700">Create, track, and resolve tickets with a consistent, accessible interface.</p>
           <div class="mt-6 flex gap-4">
-            <a href="/auth/login" class="px-4 py-2 rounded-lg bg-blue-600 text-white shadow">Login</a>
-            <a href="/auth/signup" class="px-4 py-2 rounded-lg border border-blue-600">Get Started</a>
+            <a href="/auth/login" id="homeLoginBtn" class="px-4 py-2 rounded-lg bg-blue-600 text-white shadow">Login</a>
+            <a href="/auth/signup" id="homeGetStartedBtn" class="px-4 py-2 rounded-lg border border-blue-600">Get Started</a>
           </div>
         </div>
         <div class="w-full md:w-1/2">
@@ -48,4 +48,31 @@
       </ol>
     </div>
   </section>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/js/app.js"></script>
+<script type="module">
+  import { getSession } from '/js/app.js';
+
+  // Wrap your entire function in a DOMContentLoaded listener
+  document.addEventListener('DOMContentLoaded', function() {
+    const session = getSession();
+    const loginBtn = document.querySelector('#homeLoginBtn');
+    const signupBtn = document.querySelector('#homeGetStartedBtn');
+
+    if (session) {
+      console.log(session);
+      // These checks should now pass if the elements exist
+      if (loginBtn) loginBtn.style.display = 'none'; 
+      
+      if (signupBtn) {
+        signupBtn.textContent = 'Go to Dashboard';
+        signupBtn.href = '/dashboard';
+        signupBtn.classList.remove('border', 'border-blue-600');
+        signupBtn.classList.add('bg-blue-600', 'text-white', 'shadow');
+      }
+    }
+  });
+</script>
 {% endblock %}
