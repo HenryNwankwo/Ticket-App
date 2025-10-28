@@ -1,0 +1,7 @@
+{
+  "name": "henry/ticketapptwig",
+  "description": "TicketApp Twig implementation scaffold",
+  "require": {
+    "twig/twig": "^3.0"
+  }
+}
