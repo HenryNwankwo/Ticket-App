@@ -30,33 +30,52 @@ Each implementation follows the exact same UI/UX rules (wave hero, decorative ci
 
 ## Per-framework README templates
 
-### React README (react-ticketApp/README.md)
+### React README (ticketapp-react/README.md)
 
 - Stack: React, NextJS, TailwindCSS, react-hot-toast
 - Run:
+
   - `npm install`
   - `npm run dev`
+
 - Build: `npm run build`
-- Dev server: `http://localhost:5173`
+- Dev server: `http://localhost:3000`
 - Test user credentials (example):
   - email: `test@ticketapp.local`
   - password: `password123`
 - Session key: `ticketapp_session`
 
-### Vue README (vue-ticketApp/README.md)
+### Vue README (ticketapp-vue/README.md)
 
 - Stack: Vue 3 (Composition API), Vite, TailwindCSS, Vue Router, Pinia, vue-toastification
 - Same run steps and credentials as React.
 
-### Twig README (twig-ticketApp/README.md)
+  - `npm install`
+  - `npm run dev`
 
-- Stack: PHP + Composer + Twig + a tiny router (or use Slim/Laravel if allowed). Keep it server-rendered but still simulate auth via localStorage + cookies or session.
-- Setup:
-  - `composer install`
-  - start PHP built-in server: `php -S localhost:8000 -t public`
-- Explain where templates live (`templates/`), how mock API is provided (an `api.php` entrypoint that reads/writes JSON files or keeps data in `storage/tickets.json`), and how to switch between versions.
+- Dev server: `http://localhost:5175`
+- Test user credentials (example):
+  - email: `test@ticketapp.local`
+  - password: `password123`
+- Session key: `ticketapp_session`
 
----
+### Twig README (ticketapp-twig/README.md)
+
+- Stack: PHP + Composer + Twig
+
+## Requirements
+
+- PHP 8.0+
+- Composer
+
+## Install & Run (development)
+
+1. `composer install`
+2. Start PHP built-in server from `public/`:
+   ```bash
+   php -S localhost:8000 -t public
+   ```
+3. Open http://localhost:8000
 
 ## Example test user
 
