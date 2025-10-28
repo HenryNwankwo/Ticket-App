@@ -25,16 +25,16 @@
           </p>
 
           <!-- Conditional buttons -->
-          <div class="mt-6 flex gap-4 w-full">
+          <div class="mt-6 flex gap-4">
             <template v-if="!isLoggedIn">
               <router-link
                 to="/auth/login"
-                class="px-4 py-2 rounded-lg bg-blue-600 text-white shadow text-center flex-1"
+                class="px-4 py-2 rounded-lg bg-blue-600 text-white shadow text-center"
                 >Login</router-link
               >
               <router-link
                 to="/auth/signup"
-                class="px-4 py-2 rounded-lg border border-blue-600 text-center flex-1"
+                class="px-4 py-2 rounded-lg border border-blue-600 text-center"
                 >Get Started</router-link
               >
             </template>
